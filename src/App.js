@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-// import Fullscreen from "react-full-screen";
+import Fullscreen from "react-full-screen";
 import socketIOClient from "socket.io-client";
 import Example from "./Example";
 import "./reset.css";
@@ -11,7 +11,7 @@ const ENDPOINT = "https://evening-caverns-60077.herokuapp.com/";
 function App() {
 
   // let fullScreenRef = useRef(null);
-  // let [fullScreenMode, setfullScreenMode]= useState(false);
+  let [fullScreenMode, setfullScreenMode]= useState(false);
 
   const socket = socketIOClient(ENDPOINT);
   // const [response, setResponse] = useState("");
@@ -29,18 +29,18 @@ function App() {
   //   // setfullScreenMode(!fullScreenMode);
   // }, []);
 
-  // const fullScreenToggler = () => {
-  //   setfullScreenMode(!fullScreenMode);
-  // }
+  const fullScreenToggler = () => {
+    setfullScreenMode(!fullScreenMode);
+  }
 
 
   return (
     <>
-    {/* <Fullscreen enabled={fullScreenMode}> */}
+    <Fullscreen enabled={fullScreenMode}>
     {/* <div onLoad={fullScreenToggler}> */}
-      {/* <button className="fullscreen__button" onClick={fullScreenToggler}>
+      <button className="fullscreen__button" onClick={fullScreenToggler}>
              FullScreen Mode
-          </button> */}
+          </button>
       <div className="wifi__container">
         <img alt="wifi icon" className="wifi" src="./assets/wifi.svg" ></img>
       </div>
@@ -64,7 +64,7 @@ function App() {
         name={"carControls"}
       />
     {/* </div> */}
-    {/* </Fullscreen> */}
+    </Fullscreen>
     </>
     // TODO: input eventlistener 'input' needs to trigger emit to server
   );
