@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Fullscreen from "react-full-screen";
+// import Fullscreen from "react-full-screen";
 import socketIOClient from "socket.io-client";
 import Example from "./Example";
 import "./reset.css";
@@ -11,7 +11,7 @@ const ENDPOINT = "https://evening-caverns-60077.herokuapp.com/";
 function App() {
 
   // let fullScreenRef = useRef(null);
-  let [fullScreenMode, setfullScreenMode]= useState(false);
+  // let [fullScreenMode, setfullScreenMode]= useState(false);
 
   const socket = socketIOClient(ENDPOINT);
   // const [response, setResponse] = useState("");
