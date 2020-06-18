@@ -14,7 +14,6 @@ function App() {
 
   const socket = socketIOClient(ENDPOINT);
   // const [response, setResponse] = useState("");
-  socket.emit("controllerConnected");
 
   // useEffect(() => {
   //   // const socket = socketIOClient(ENDPOINT);
