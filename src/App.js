@@ -14,21 +14,22 @@ function App() {
 
   const socket = socketIOClient(ENDPOINT);
   // const [response, setResponse] = useState("");
+  socket.emit("controllerConnected");
 
-  useEffect(() => {
-    // const socket = socketIOClient(ENDPOINT);
-    // console.log(document.body.div)
-    // document.body.requestFullscreen();
-    // socket.on("coords", (data) => {
-    //   console.log(data);
-    //   console.log(data.longitude);
-    //   console.log(data.latitude);
-    // });
+  // useEffect(() => {
+  //   // const socket = socketIOClient(ENDPOINT);
+  //   // console.log(document.body.div)
+  //   // document.body.requestFullscreen();
+  //   // socket.on("coords", (data) => {
+  //   //   console.log(data);
+  //   //   console.log(data.longitude);
+  //   //   console.log(data.latitude);
+  //   // });
 
-    socket.emit("controllerConnected");
+  //   socket.emit("controllerConnected");
 
-    // setfullScreenMode(!fullScreenMode);
-  }, []);
+  //   // setfullScreenMode(!fullScreenMode);
+  // }, []);
 
   const fullScreenToggler = () => {
     setfullScreenMode(!fullScreenMode);
