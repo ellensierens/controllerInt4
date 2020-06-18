@@ -50,7 +50,6 @@ class Example extends React.Component {
             onEnd={
               () => {
                 this.socket.emit("stop", 0);
-                this.socket.emit("controllerConnected");
             }}
             onMove={(evt, data) => {
               console.log(data)
