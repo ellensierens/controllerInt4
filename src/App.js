@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Fullscreen from "react-full-screen";
 import socketIOClient from "socket.io-client";
 import Example from "./Example";
@@ -24,6 +24,8 @@ function App() {
     //   console.log(data.longitude);
     //   console.log(data.latitude);
     // });
+
+    socket.emit("controllerConnected");
 
     // setfullScreenMode(!fullScreenMode);
   }, []);
