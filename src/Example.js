@@ -47,14 +47,10 @@ class Example extends React.Component {
             //   () => {
             //     this.socket.emit(this.name, "stop");
             // }}
-            onShown={
-              () => {
-                this.socket.emit("controllerConnected");
-              }
-            }
             onEnd={
               () => {
                 this.socket.emit("stop", 0);
+                this.socket.emit("controllerConnected");
             }}
             onMove={(evt, data) => {
               console.log(data)
