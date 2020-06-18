@@ -47,7 +47,7 @@ class Example extends React.Component {
             //   () => {
             //     this.socket.emit(this.name, "stop");
             // }}
-            onLoad={
+            onShown={
               () => {
                 this.socket.emit("controllerConnected");
               }
