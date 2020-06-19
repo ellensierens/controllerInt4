@@ -40,7 +40,7 @@ function App() {
       <Fullscreen enabled={fullScreenMode}>
         {/* <div onLoad={fullScreenToggler}> */}
         <button className="fullscreen__button" onClick={fullScreenToggler}>
-          FullScreen Mode
+          FullScreen
         </button>
         <div className="wifi__container">
           <img alt="wifi icon" className="wifi" src="./assets/wifi.svg"></img>
