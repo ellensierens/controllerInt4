@@ -1,3 +1,17 @@
+@font-face {
+  font-family: "Bungee";
+  src: url(/fonts/Bungee-Regular.woff) format("woff"),
+    url(/fonts/Bungee-Regular.woff2) format("woff2");
+  font-weight: 400;
+  font-weight: normal;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
@@ -31,7 +45,7 @@ code {
 } */
 
 .wifi__container {
-  background-image: url(./assets/Rectangle\ 308.svg);
+  background-image: url("./assets/Rectangle.svg");
   width: 119px;
   height: 45px;
   position: fixed;
@@ -78,4 +92,31 @@ code {
   /* z-index: 10; */
   position: fixed;
   left: 0;
+}
+
+.portrait {
+  display: none;
+}
+
+@media screen and (orientation: portrait) {
+  .landscape {
+    display: none;
+  }
+
+  .portrait {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    background-color: #ffb400;
+  }
+
+  .portrait__tekst {
+    color: #00204B;
+    font-family: "Bungee";
+    font-size: 8vw;
+    padding-top: 2rem;
+    padding-bottom: 7rem;
+  }
 }

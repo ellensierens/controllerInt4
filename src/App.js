@@ -36,6 +36,7 @@ function App() {
 
   return (
     <>
+      <div className="landscape">
       <Fullscreen enabled={fullScreenMode}>
         {/* <div onLoad={fullScreenToggler}> */}
         <button className="fullscreen__button" onClick={fullScreenToggler}>
@@ -65,6 +66,11 @@ function App() {
         />
         {/* </div> */}
       </Fullscreen>
+      </div>
+      <div className="portrait">
+      <img src="/assets/turn.svg"/>
+      <p className="portrait__tekst">turn your phone</p>
+      </div>
     </>
     // TODO: input eventlistener 'input' needs to trigger emit to server
   );
