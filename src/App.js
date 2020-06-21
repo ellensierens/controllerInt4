@@ -11,6 +11,7 @@ const ENDPOINT = "https://evening-caverns-60077.herokuapp.com/";
 function App() {
   // let fullScreenRef = useRef(null);
   let [fullScreenMode, setfullScreenMode] = useState(false);
+  let connected;
 
   const socket = socketIOClient(ENDPOINT);
   // const [response, setResponse] = useState("");
@@ -19,11 +20,13 @@ function App() {
     // const socket = socketIOClient(ENDPOINT);
     // console.log(document.body.div)
     // document.body.requestFullscreen();
-    // socket.on("coords", (data) => {
-    //   console.log(data);
-    //   console.log(data.longitude);
-    //   console.log(data.latitude);
-    // });
+    socket.on("connected", (status) => {
+      console.log("connected");
+      // console.log(status);
+      connected = status;
+      console.log(connected, status)
+      console.log(typeof connected)
+    });
 
     socket.emit("controllerConnected");
 
@@ -36,6 +39,7 @@ function App() {
 
   return (
     <>
+      {connected?  <p>you are connected </p> : <p>you are not connected </p>}
       <div className="landscape">
       <Fullscreen enabled={fullScreenMode}>
         {/* <div onLoad={fullScreenToggler}> */}
