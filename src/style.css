@@ -38,6 +38,7 @@ code {
   justify-content: center;
   align-items: center;
   background-color: #ffb400;
+  flex-flow: column;
 }
 
 .status {
@@ -75,20 +76,29 @@ code {
   top: 0px; */
 }
 
-.fullscreen__button {
-  position: fixed;
-  left: 0;
-  top: 0;
+.fullscreen__button, .refresh {
   z-index: 5;
   background-color: transparent;
   border: none;
   font-family: "Bungee";
   background-color: #00204B;
   color: #ffb400;
-  font-size: .8rem;
   padding: .5rem 1rem;
   margin: 1rem;
   border-radius: 1rem;
+  outline: none;
+}
+
+.fullscreen__button {
+  position: fixed;
+  left: 0;
+  top: 0;
+  font-size: .8rem;
+}
+
+.refresh {
+  margin-top: 2rem;
+  font-size: 2rem;
 }
 
 .wifi {
