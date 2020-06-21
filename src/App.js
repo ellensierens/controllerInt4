@@ -11,7 +11,7 @@ const ENDPOINT = "https://evening-caverns-60077.herokuapp.com/";
 function App() {
   // let fullScreenRef = useRef(null);
   let [fullScreenMode, setfullScreenMode] = useState(false);
-  let connected;
+  let [connected, setConnected] = useState(undefined);
 
   const socket = socketIOClient(ENDPOINT);
   // const [response, setResponse] = useState("");
@@ -22,62 +22,80 @@ function App() {
     // document.body.requestFullscreen();
     socket.on("connected", (status) => {
       console.log("connected");
-      // console.log(status);
-      connected = status;
-      console.log(connected, status)
-      console.log(typeof connected)
+      setConnected(status);
+      console.log(status);
     });
 
     socket.emit("controllerConnected");
 
-  //   // setfullScreenMode(!fullScreenMode);
+    //   // setfullScreenMode(!fullScreenMode);
   }, []);
 
   const fullScreenToggler = () => {
     setfullScreenMode(!fullScreenMode);
   };
 
-  return (
-    <>
-      {connected?  <p>you are connected </p> : <p>you are not connected </p>}
-      <div className="landscape">
-      <Fullscreen enabled={fullScreenMode}>
-        {/* <div onLoad={fullScreenToggler}> */}
-        <button className="fullscreen__button" onClick={fullScreenToggler}>
-          FullScreen
-        </button>
-        <div className="wifi__container">
-          <img alt="wifi icon" className="wifi" src="./assets/wifi.svg"></img>
-        </div>
-        {/* <button onClick={(e) => goFullScreen()}> enable full screen </button> */}
-        {/* <p> */}
-        {/* It's <time dateTime={response}>{response}</time> */}
-        {/* </p> */}
-        {/* <input type="range" min="78" max="102" onInput={handleChangeSlider}></input> */}
-        <Example
-          className={"nipple1"}
-          color={"#00204B"}
-          border={"none"}
-          socket={socket}
-          name={"cameraControls"}
-        />
-        <Example
-          className={"nipple2"}
-          color={"#FFB400"}
-          border={"none"}
-          socket={socket}
-          name={"carControls"}
-        />
-        {/* </div> */}
-      </Fullscreen>
-      </div>
-      <div className="portrait">
-      <img src="/assets/turn.svg"/>
-      <p className="portrait__tekst">turn your phone</p>
-      </div>
-    </>
-    // TODO: input eventlistener 'input' needs to trigger emit to server
-  );
+  switch (connected) {
+    case undefined:
+      return <p>loading</p>;
+      break;
+    case false:
+      return <p>you are not connected</p>;
+      break;
+    case true:
+      return (
+        <>
+          {connected ? (
+            <p>you are connected </p>
+          ) : (
+            <p>you are not connected </p>
+          )}
+          <div className="landscape">
+            <Fullscreen enabled={fullScreenMode}>
+              {/* <div onLoad={fullScreenToggler}> */}
+              <button
+                className="fullscreen__button"
+                onClick={fullScreenToggler}
+              >
+                FullScreen
+              </button>
+              <div className="wifi__container">
+                <img
+                  alt="wifi icon"
+                  className="wifi"
+                  src="./assets/wifi.svg"
+                ></img>
+              </div>
+              {/* <button onClick={(e) => goFullScreen()}> enable full screen </button> */}
+              {/* <p> */}
+              {/* It's <time dateTime={response}>{response}</time> */}
+              {/* </p> */}
+              {/* <input type="range" min="78" max="102" onInput={handleChangeSlider}></input> */}
+              <Example
+                className={"nipple1"}
+                color={"#00204B"}
+                border={"none"}
+                socket={socket}
+                name={"cameraControls"}
+              />
+              <Example
+                className={"nipple2"}
+                color={"#FFB400"}
+                border={"none"}
+                socket={socket}
+                name={"carControls"}
+              />
+              {/* </div> */}
+            </Fullscreen>
+          </div>
+          <div className="portrait">
+            <img src="/assets/turn.svg" />
+            <p className="portrait__tekst">turn your phone</p>
+          </div>
+        </>
+        // TODO: input eventlistener 'input' needs to trigger emit to server
+      );
+  }
 }
 
 export default App;
