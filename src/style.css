@@ -19,6 +19,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   height: 100vw;
+  overflow: hidden;
 }
 
 code {
@@ -42,7 +43,7 @@ code {
 }
 
 .status {
-  color: #00204B;
+  color: #00204b;
   font-family: "Bungee";
   font-size: 3vw;
   /* padding-top: 2rem;
@@ -76,24 +77,37 @@ code {
   top: 0px; */
 }
 
-.fullscreen__button, .refresh {
+.fullscreen__button,
+.refresh {
   z-index: 5;
   background-color: transparent;
   border: none;
   font-family: "Bungee";
-  background-color: #00204B;
-  color: #ffb400;
-  padding: .5rem 1rem;
+  padding: 0.5rem 1rem;
   margin: 1rem;
   border-radius: 1rem;
   outline: none;
 }
 
 .fullscreen__button {
+  color: #00204b;
+  background-color: #ffb400;
+}
+
+.layout__button {
+  margin-left: 10rem;
+}
+
+.refresh {
+  background-color: #00204b;
+  color: #ffb400;
+}
+
+.fullscreen__button {
   position: fixed;
   left: 0;
   top: 0;
-  font-size: .8rem;
+  font-size: 0.8rem;
 }
 
 .refresh {
@@ -111,7 +125,7 @@ code {
   background-repeat: no-repeat;
   background-size: 25vw;
   background-position: center;
-  right: 0;
+
   width: 50vw;
   /* z-index: -10; */
   position: fixed;
@@ -127,6 +141,13 @@ code {
   width: 50vw;
   /* z-index: 10; */
   position: fixed;
+}
+
+.right {
+  right: 0;
+}
+
+.left {
   left: 0;
 }
 
@@ -149,7 +170,7 @@ code {
   }
 
   .portrait__tekst {
-    color: #00204B;
+    color: #00204b;
     font-family: "Bungee";
     font-size: 8vw;
     padding-top: 2rem;

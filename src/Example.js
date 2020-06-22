@@ -6,13 +6,14 @@ import "./style.css";
 import "react-nipple/lib/styles.css";
 
 class Example extends React.Component {
-  constructor({ color, className, border, socket, name }) {
+  constructor({ color, className, border, socket, name, state }) {
     super();
     this.color = color;
     this.border = border;
     this.className = className;
     this.socket = socket;
     this.name = name;
+    // this.state = state
   }
 
   // handleChangeSlider(e) {
