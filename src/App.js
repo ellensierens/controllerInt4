@@ -22,7 +22,8 @@ function App() {
       if(document.hidden) {
         console.log("blurred");
         if(connected){
-          socket.disconnect();
+          // socket.disconnect();
+          socket.emit("blurred")
           setConnected(false);
         }
       }else{
