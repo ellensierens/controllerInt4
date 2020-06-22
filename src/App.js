@@ -5,8 +5,8 @@ import Example from "./Example";
 import "./reset.css";
 import "./style.css";
 
-const ENDPOINT = "https://evening-caverns-60077.herokuapp.com/";
-// const ENDPOINT = "http://127.0.0.1:8081";
+// const ENDPOINT = "https://evening-caverns-60077.herokuapp.com/";
+const ENDPOINT = "http://127.0.0.1:8081";
 
 function App() {
   // let fullScreenRef = useRef(null);
