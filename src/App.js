@@ -17,6 +17,20 @@ function App() {
   // const [response, setResponse] = useState("");
 
   useEffect(() => {
+    const onChange = () => {
+      console.log("in change");
+      if(document.hidden) {
+        console.log("blurred");
+        if(connected){
+          socket.disconnect();
+        }
+      }else{
+        console.log("focus");
+      }
+    }
+
+    document.addEventListener("visibilitychange", onChange);
+
     // const socket = socketIOClient(ENDPOINT);
     // console.log(document.body.div)
     // document.body.requestFullscreen();
@@ -29,6 +43,11 @@ function App() {
     if (connected !== true) {
       socket.emit("controllerConnected");
     }
+
+    return () => {
+      socket.disconnect();
+      document.removeEventListener("visibilitychange", onChange);
+    };
 
     //   // setfullScreenMode(!fullScreenMode);
   }, [connected, socket]);
