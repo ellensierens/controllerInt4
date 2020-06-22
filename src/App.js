@@ -41,7 +41,7 @@ function App() {
         console.log(status);
       });
 
-    if (connected !== true) {
+    if (connected === undefined) {
       // console.log("controllerConnected emit")
       socket.emit("controllerConnected");
     }
