@@ -23,6 +23,7 @@ function App() {
         console.log("blurred");
         if(connected){
           socket.disconnect();
+          setConnected(false);
         }
       }else{
         console.log("focus");
