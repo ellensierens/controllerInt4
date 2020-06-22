@@ -30,7 +30,7 @@ function App() {
       }
     }
 
-    // document.addEventListener("visibilitychange", onChange);
+    document.addEventListener("visibilitychange", onChange);
 
     // const socket = socketIOClient(ENDPOINT);
     // console.log(document.body.div)
@@ -48,7 +48,7 @@ function App() {
 
     return () => {
       // socket.disconnect();
-      // document.removeEventListener("visibilitychange", onChange);
+      document.removeEventListener("visibilitychange", onChange);
     };
 
     //   // setfullScreenMode(!fullScreenMode);
