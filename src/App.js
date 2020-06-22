@@ -42,11 +42,12 @@ function App() {
       });
 
     if (connected !== true) {
+      // console.log("controllerConnected emit")
       socket.emit("controllerConnected");
     }
 
     return () => {
-      socket.disconnect();
+      // socket.disconnect();
       // document.removeEventListener("visibilitychange", onChange);
     };
 
