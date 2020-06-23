@@ -94,10 +94,6 @@ code {
   background-color: #ffb400;
 }
 
-.layout__button {
-  margin-left: 10rem;
-}
-
 .refresh {
   background-color: #00204b;
   color: #ffb400;
@@ -176,4 +172,12 @@ code {
     padding-top: 2rem;
     padding-bottom: 7rem;
   }
+}
+
+@media (min-width: 960px) {
+  
+  .fullscreen__button{
+    display: none;
+  }
+  
 }
