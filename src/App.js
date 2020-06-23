@@ -12,7 +12,7 @@ function App() {
   // let fullScreenRef = useRef(null);
   let [fullScreenMode, setfullScreenMode] = useState(false);
   let [connected, setConnected] = useState(undefined);
-  let [inverted, setInverted] = useState(false);
+  // let [inverted, setInverted] = useState(false);
 
   const socket = socketIOClient(ENDPOINT);
   // const [response, setResponse] = useState("");
@@ -60,19 +60,16 @@ function App() {
     setfullScreenMode(!fullScreenMode);
   };
 
-  const changeLayout = () => {
-    setInverted(!inverted);
-  };
+  // const changeLayout = () => {
+  //   setInverted(!inverted);
+  // };
 
-  const nipple1 = `nipple1 ${inverted ? "left" : "right"}`;
-  const nipple2 = `nipple2 ${inverted ? "right" : "left"}`;
+  // const nipple1 = `nipple1 ${inverted ? "left" : "right"}`;
+  // const nipple2 = `nipple2 ${inverted ? "right" : "left"}`;
 
   if (connected) {
-    if(inverted){
       return (
         <>
-          {console.log(inverted)}
-          {console.log(nipple1, nipple2)}
           <div className="landscape">
             <Fullscreen enabled={fullScreenMode}>
               {/* <div onLoad={fullScreenToggler}> */}
@@ -80,66 +77,6 @@ function App() {
                 FullScreen
               </button>
               {/* <p>{layout}</p> */}
-              <button
-                className="fullscreen__button layout__button"
-                onClick={changeLayout}
-              >
-                change layout
-              </button>
-              <div className="wifi__container">
-                <img
-                  alt="wifi icon"
-                  className="wifi"
-                  src="./assets/wifi.svg"
-                ></img>
-              </div>
-              <Example
-                className={"nipple1 left"}
-                color={"#00204B"}
-                border={"none"}
-                socket={socket}
-                name={"cameraControls"}
-                // state={state}
-              />
-  
-              <Example
-                className={"nipple2 right"}
-                // className={layout === "left" ? "left nipple2" : "right nipple2"}
-                color={"#FFB400"}
-                border={"none"}
-                socket={socket}
-                name={"carControls"}
-                // state={state === "left"? "right" : "left"}
-              />
-  {console.log(nipple1, nipple2)}
-              {/* </div> */}
-            </Fullscreen>
-          </div>
-          <div className="portrait">
-            <img alt="turn" src="/assets/turn.svg" />
-            <p className="portrait__tekst">turn your phone</p>
-          </div>
-        </>
-        // TODO: input eventlistener 'input' needs to trigger emit to server
-      );
-    } else {
-      return (
-        <>
-          {console.log(inverted)}
-          {console.log(nipple1, nipple2)}
-          <div className="landscape">
-            <Fullscreen enabled={fullScreenMode}>
-              {/* <div onLoad={fullScreenToggler}> */}
-              <button className="fullscreen__button" onClick={fullScreenToggler}>
-                FullScreen
-              </button>
-              {/* <p>{layout}</p> */}
-              <button
-                className="fullscreen__button layout__button"
-                onClick={changeLayout}
-              >
-                change layout
-              </button>
               <div className="wifi__container">
                 <img
                   alt="wifi icon"
@@ -175,7 +112,6 @@ function App() {
         </>
         // TODO: input eventlistener 'input' needs to trigger emit to server
       );
-    }
     
   } else if (connected === false) {
     return (
